@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Любовь</title>
+  <style>
+    /* Базовые стили для страницы */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Фоновое слайдшоу */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fade 12s infinite;
+    }
+    /* Разные задержки для изображений */
+    .slideshow img:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .slideshow img:nth-child(2) {
+      animation-delay: 4s;
+    }
+    .slideshow img:nth-child(3) {
+      animation-delay: 8s;
+    }
+    @keyframes fade {
+      0% { opacity: 0; }
+      8.33% { opacity: 1; }
+      25% { opacity: 1; }
+      33.33% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+    /* Контейнер основного контента */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+    
+    /* Анимация появления сердца */
+    .heart-container {
+      animation: heartPop 1s ease-out forwards;
+    }
+    svg {
+      width: 150px;
+      height: auto;
+      opacity: 0;
+      animation: fadeInScale 1s ease-out forwards;
+    }
+    @keyframes fadeInScale {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes heartPop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    /* Анимация появления текста */
+    .text {
+      margin-top: 20px;
+      font-size: 2em;
+      color: #fff;
+      opacity: 0;
+      animation: textFadeIn 2s ease-in-out forwards;
+      animation-delay: 1.5s;
+      line-height: 1.3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    @keyframes textFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Фоновое слайдшоу -->
+  <div class="slideshow">
+    <!-- Замените ссылки на свои изображения -->
+    <img src="image1.jpg" alt="Фон 1">
+    <img src="image2.jpg" alt="Фон 2">
+    <img src="image3.jpg" alt="Фон 3">
+  </div>
+  
+  <!-- Основной контент -->
+  <div class="content">
+    <div class="heart-container">
+      <!-- Более симметричный SVG-сердце -->
+      <svg viewBox="0 0 512 512">
+        <path fill="red" d="M471.701,73.974c-54.507-46.426-136.403-38.863-186.243,13.952L256,108.84l-29.458-21.914
+          c-49.84-52.815-131.736-60.378-186.243-13.952C5.454,118.312-6.545,198.357,43.267,264.073L256,476.04l212.733-211.967
+          C518.545,198.357,506.546,118.312,471.701,73.974z"/>
+      </svg>
+    </div>
+    <div class="text">
+      с нашим пятым месяцем<br>
+       МАРК ЛЮБИТ СИЛЬНЕЕ
+    </div>
+  </div>
+</body>
+</html>
